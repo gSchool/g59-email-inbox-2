@@ -1,0 +1,93 @@
+<div class="row toolbar"
+
+    <fieldset class="col-md-12"  >
+        <p class="pull-right">
+            <span class="badge badge">{{unreadCount()}}</span> unread messages
+        </p>
+
+        <a href="/" class="btn btn-danger">
+       <i ng-click="createMessage = !createMessage"class="fa fa-plus"></i>
+       </a>
+
+        <button ng-disabled="checkMessagesChecked()" ng-click="toggleCheckAll(message)" class="btn btn-default">
+      <i class="fa {{getMessageStatus(message)}}"></i>
+
+    </button>
+
+        <button ng-disabled="checkMessagesChecked()" ng-click="markedAsRead()" class="btn btn-default">Mark As Read</button>
+
+        <button ng-disabled="checkMessagesChecked()" ng-click="markedAsUnRead()" class="btn btn-default">Mark As Unread</button>
+
+        <select ng-disabled="checkMessagesChecked()" ng-change="applyLabel()" ng-model="addLabel" class="form-control label-select">
+      <option disabled value="">Apply label</option>
+      <option value="dev">dev</option>
+      <option value="personal">personal</option>
+      <option value="gschool">gschool</option>
+    </select>
+
+        <select ng-disabled="checkMessagesChecked()"ng-change="removeLabel()" ng-model="delLabel" class="form-control label-select">
+      <option disabled value="">Remove label</option>
+      <option value="dev">dev</option>
+      <option value="personal">personal</option>
+      <option value="gschool">gschool</option>
+    </select>
+
+        <button ng-disabled="checkMessagesChecked()" ng-click="deleteMessage()" class="btn btn-default">
+      <i class="fa fa-trash-o"></i>
+    </button>
+    </fieldset>
+
+
+<div ng-init="!createMessage" ng-show="createMessage" class="container">
+    <form class="form-horizontal well">
+  <div class="form-group">
+    <div class="col-sm-8 col-sm-offset-2">
+      <h4>Compose Message</h4>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="subject" class="col-sm-2 control-label">Subject</label>
+    <div class="col-sm-8">
+      <input ng-model="newMessage.subject" type="text" class="form-control" id="subject" placeholder="Enter a subject" name="subject">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="body" class="col-sm-2 control-label">Body</label>
+    <div class="col-sm-8">
+      <textarea ng-model="newMessage.body" name="body" id="body" class="form-control"></textarea>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-8 col-sm-offset-2">
+      <input ng-click="sendMessage(newMessage)"type="submit" value="Send" class="btn btn-primary">
+    </div>
+  </div>
+</form>
+</div>
+
+
+
+</div>
+
+
+<div ng-repeat="message in messages">
+
+    <div class="row message {{getMessageClasses(message)}} ">
+        <div class=" col-xs-1 ">
+            <div class="row ">
+                <div class="col-xs-2 ">
+                    <input ng-model="message.selected" type="checkbox" />
+                </div>
+                <div ng-click="toggleStar(message)"class="col-xs-2 ">
+                    <i class="star fa {{getStarClasses(message)}} "></i>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-11 ">
+            <div class="label-div" ng-repeat="label in message.labels | orderBy ">
+                <span class="label label-warning ">{{label}}</span>
+            </div>
+            <a href="# ">{{message.subject}}</a>
+        </div>
+    </div>
+</div>
