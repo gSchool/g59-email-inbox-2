@@ -1,7 +1,8 @@
+#React templated InboxThis
+This is an interactive react inbox# React-Inbox
 
- ### WELCOME TO G59 email-inbox checkpoint 2!
+1. Pre API load
+![PREAPI](/preAPI.png "preAPI")
 
-* Fork/Clone
-* Copy and Paste your files to this repo
-* Send a pull request
-* This will enable instructors to do a "real world" code review.
+1. Post API load
+![POSTAPI](/postAPI.png "postAPI")
