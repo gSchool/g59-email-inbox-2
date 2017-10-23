@@ -1,0 +1,16 @@
+<div class="{{'row message' + getClassList(message)}}" ng-repeat="message in $root.messages | orderBy: 'id' " ng-model="message.id">
+  <div class="col-xs-1">
+    <div class="row">
+      <div class="col-xs-2">
+        <input type="checkbox" ng-model="message.selected" ng-change="optionToggled()"/>
+      </div>
+        <div class="col-xs-2">
+          <i ng-class="{'star fa fa-star': message.starred, 'star fa fa-star-o': !message.starred}" ng-click="changeStarred(message)"></i>
+        </div>
+      </div>
+  </div>
+  <div class="col-xs-11">
+    <span class="label label-warning" ng-repeat="label in message.labels | orderBy">{{label}}</span>
+    <a href="#"> {{message.subject}} </a>
+  </div>
+</div>

@@ -1,0 +1,42 @@
+<div class="row toolbar">
+  <div class="col-md-12">
+    <p class="pull-right">
+      <span class="badge badge">{{countUnread()}}</span>
+      unread messages
+    </p>
+
+    <a class="btn btn-danger" ng-click="$root.showForm = !$root.showForm">
+      <i class="fa fa-plus"></i>
+    </a>
+
+    <button class="btn btn-default" ng-click="toggleAll()">
+      <i class="{{setIcon()}}" ng-model="isAllSelected"></i>
+    </button>
+
+    <button class="btn btn-default" ng-click="markAsRead()" ng-disabled="!messageSelected()">
+      Mark As Read
+    </button>
+
+    <button class="btn btn-default" ng-click="markAsUnread()" ng-disabled="!messageSelected()">
+      Mark As Unread
+    </button>
+
+    <select class="form-control label-select" ng-model="addLabelSelected" ng-change="addLabel()" ng-disabled="!messageSelected()">
+      <option value="" disabled>Apply label</option>
+      <option value="dev">dev</option>
+      <option value="personal">personal</option>
+      <option value="gschool">gschool</option>
+    </select>
+
+    <select class="form-control label-select" ng-model="removeLabelSelected" ng-change="removeLabel()" ng-disabled="!messageSelected()">
+      <option value="" disabled>Remove label</option>
+      <option value="dev">dev</option>
+      <option value="personal">personal</option>
+      <option value="gschool">gschool</option>
+    </select>
+
+    <button class="btn btn-default" ng-click="deleteMessage()" ng-disabled="!messageSelected()">
+      <i class="fa fa-trash-o" ></i>
+    </button>
+  </div>
+</div>
