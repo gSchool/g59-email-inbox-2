@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="messageApp">
+  <head>
+    <meta charset="utf-8">
+    <title>Angular Inbox Project</title>
+    <base href="/" />
+    <!-- CSS Import -->
+    <link rel="stylesheet" href="/css/master.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!-- Script Import -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular.min.js" charset="utf-8"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular-route.js" charset="utf-8"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" charset="utf-8"></script>
+
+    <!-- messageApp components -->
+    <script src="app.module.js" charset="utf-8"></script>
+    <script src="app.config.js" charset="utf-8"></script>
+    <script src="message-list/message-list.module.js" charset="utf-8"></script>
+    <script src="message-list/message-list.component.js" charset="utf-8"></script>
+    <script src="tool-bar/tool-bar.module.js" charset="utf-8"></script>
+    <script src="tool-bar/tool-bar.component.js" charset="utf-8"></script>
+    <script src="compose-form/compose-form.module.js" charset="utf-8"></script>
+    <script src="compose-form/compose-form.component.js" charset="utf-8"></script>
+
+  </head>
+  <body>
+    <div class="container">
+      <div ng-view></div>
+    </div>
+  </body>
+</html>
